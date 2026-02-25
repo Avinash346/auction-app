@@ -42,11 +42,4 @@ Client runs on:
 
 - http://localhost:5173
 
-## Optional: run the socket tests
 
-If `server/test.js` exists:
-
-```bash
-cd server
-node test.js
-```
