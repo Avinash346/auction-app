@@ -1,6 +1,6 @@
 function getIncrement(bid) {
-  if (bid <= 20) return 2
-  if (bid <= 50) return 3
+  if (bid < 20) return 2
+  if (bid < 50) return 3
   return 5
 }
 

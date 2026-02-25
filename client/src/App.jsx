@@ -23,6 +23,15 @@ export default function App() {
   const [error, setError] = useState(null)
 
   useEffect(() => {
+    function onConnect() {
+      setError(null)
+    }
+
+    function onConnectError(e) {
+      setError(e && e.message ? e.message : 'Socket connection failed')
+      setTimeout(() => setError(null), 3000)
+    }
+
     function onRoomCreated({ roomId: id }) {
       setRoomId(id)
       setScreen('lobby')
@@ -81,6 +90,8 @@ export default function App() {
     socket.on('auction_result', onAuctionResult)
     socket.on('score_update', onScoreUpdate)
     socket.on('error', onError)
+    socket.on('connect', onConnect)
+    socket.on('connect_error', onConnectError)
 
     return () => {
       socket.off('room_created', onRoomCreated)
@@ -92,6 +103,8 @@ export default function App() {
       socket.off('auction_result', onAuctionResult)
       socket.off('score_update', onScoreUpdate)
       socket.off('error', onError)
+      socket.off('connect', onConnect)
+      socket.off('connect_error', onConnectError)
     }
   }, [])
 

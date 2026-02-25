@@ -12,7 +12,7 @@ const server = http.createServer(app)
 
 const io = new Server(server, {
   cors: {
-    origin: ['http://localhost:5173', 'https://auction-app-rosy.vercel.app'],
+    origin: true,
     methods: ['GET', 'POST']
   }
 })
@@ -28,8 +28,8 @@ function getPlayerList(room) {
 }
 
 function getIncrement(bid) {
-  if (bid <= 20) return 2
-  if (bid <= 50) return 3
+  if (bid < 20) return 2
+  if (bid < 50) return 3
   return 5
 }
 
