@@ -41,7 +41,7 @@ export default function Lobby({
 
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold">AuctionLive</h1>
-        <p className="text-gray-400 mt-2">Minimal real-time bidding rooms</p>
+        
       </div>
 
       {!roomId ? (
@@ -53,7 +53,7 @@ export default function Lobby({
               className="bg-gray-700 border border-gray-600 text-white px-3 py-2 rounded-lg w-full focus:outline-none focus:border-orange-500"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              placeholder="e.g. Alice"
+              placeholder=""
             />
             <button
               className="mt-4 w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold px-4 py-2 rounded-lg"
@@ -71,7 +71,7 @@ export default function Lobby({
               className="bg-gray-700 border border-gray-600 text-white px-3 py-2 rounded-lg w-full focus:outline-none focus:border-orange-500"
               value={joinUsername}
               onChange={(e) => setJoinUsername(e.target.value)}
-              placeholder="e.g. Bob"
+              placeholder=""
             />
 
             <div className="text-gray-400 text-sm mb-2 mt-3">Room ID</div>
@@ -120,7 +120,7 @@ export default function Lobby({
                       <div className="text-white font-semibold">{p.username}</div>
                       {isRoomCreator && (
                         <span className="text-orange-400" title="Creator">
-                          👑
+                         
                         </span>
                       )}
                     </div>
